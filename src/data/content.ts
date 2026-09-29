@@ -22,7 +22,7 @@ export const areas = [
       },
       {
         "title": "Procedimientos administrativos sancionadores",
-        "text": "Patrocinio en procedimientos administrativos sancionadores en contra de servidores públicos, proporcionando una defensa técnica eficaz."
+        "text": "Patrocinio en procedimientos administrativos sancionadores proporcionando una defensa técnica eficaz."
       },
       {
         "title": "Defensa en procesos coactivos",
@@ -120,24 +120,16 @@ export const areas = [
     ],
     "services": [
       {
-        "title": "Acciones de protección",
-        "text": "Asesoría y patrocinio en acciones destinadas a obtener la protección inmediata de derechos constitucionales vulnerados."
+        "title": "Acción extraordinaria de protección",
+        "text": "Patrocinio en contra sentencias o autos definitivos en los que se haya violado por acción u omisión derechos reconocidos en la Constitución."
       },
       {
-        "title": "Garantías jurisdiccionales",
-        "text": "Análisis y patrocinio en los mecanismos constitucionales previstos para proteger derechos fundamentales."
+        "title": "Acción de acceso a la información pública",
+        "text": "Asesoría y patrocinio para garantizar el acceso a la información pública cuando ha sido denegada por una entidad del Estado."
       },
       {
-        "title": "Vulneración de derechos constitucionales",
-        "text": "Evaluación jurídica de actuaciones u omisiones que puedan afectar derechos reconocidos por la Constitución."
-      },
-      {
-        "title": "Asesoría en derechos fundamentales",
-        "text": "Orientación legal para personas y organizaciones frente a situaciones que involucren derechos constitucionales."
-      },
-      {
-        "title": "Defensa frente a actuaciones arbitrarias del poder público",
-        "text": "Análisis y patrocinio jurídico cuando actuaciones de autoridades públicas puedan vulnerar derechos constitucionales."
+        "title": "Acción de hábeas data",
+        "text": "Asesoría y patrocinio para garantizar el acceso a la información personal que consten en entidades públicas o privadas, así como solicitar la actualización de los datos, su rectificación, eliminación o anulación."
       }
     ],
     "closing": [
