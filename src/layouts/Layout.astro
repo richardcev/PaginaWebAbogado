@@ -1,0 +1,22 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+interface Props { title: string; description: string; }
+const {title, description} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="es-EC">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={description} />
+    <link rel="canonical" href={canonical} /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1c1c43" />
+    <meta property="og:type" content="website" /><meta property="og:locale" content="es_EC" />
+    <meta property="og:site_name" content="Gerson Cevallos Apolo" /><meta property="og:title" content={title} />
+    <meta property="og:description" content={description} /><meta property="og:url" content={canonical} />
+    <link rel="preload" href="/fonts/golos-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body><a href="#contenido" class="skip-link">Saltar al contenido</a><main id="contenido"><slot /></main><Footer /></body>
+</html>

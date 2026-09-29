@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+interface Props {title:string;slug:string;icon:string;asset:string}
+const {title,slug,icon,asset}=Astro.props;
+---
+<a class="practice-card" href={`/${slug}/`}>
+  <img src={`/images/area-${asset}.${asset === 'constitucional' ? 'webp' : 'jpg'}`} alt="" width="600" height="600" loading="lazy" decoding="async" />
+  <Icon name={icon} size={34} /><h3>{title}</h3>
+</a>

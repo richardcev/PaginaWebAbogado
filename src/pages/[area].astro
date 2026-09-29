@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import {areas} from '../data/content';
+export function getStaticPaths(){return areas.map(area=>({params:{area:area.slug},props:{area}}));}
+const {area}=Astro.props;
+---
+<Layout title={`${area.title} | Gerson Cevallos Apolo`} description={area.description}>
+  <Hero title={area.title} eyebrow="Áreas de práctica" image={`/images/hero-${area.asset}.webp`} />
+  <div class="container section practice-body">
+    <aside class="practice-aside"><h2>Áreas de práctica</h2><nav aria-label="Especialidades jurídicas">{areas.map(item=><a href={`/${item.slug}/`} aria-current={item.slug === area.slug ? 'page' : undefined}>{item.title}<Icon size={17}/></a>)}</nav></aside>
+    <article class="practice-copy"><h2>{area.heading}</h2>{area.intro.map(text=><p>{text}</p>)}
+      <section class="services" aria-labelledby="services-title"><h2 id="services-title">Principales servicios brindados</h2><ol>{area.services.map((service,index)=><li class="service"><span class="service-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><div><h3>{service.title}</h3><p>{service.text}</p></div></li>)}</ol></section>
+      <div class="practice-closing">{area.closing.map(text=><p>{text}</p>)}<Button href="/contacto/" variant="dark">Consultar mi caso</Button></div>
+    </article>
+  </div>
+</Layout>

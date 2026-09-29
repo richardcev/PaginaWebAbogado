@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+import {areas} from '../data/content';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand"><a href="/" aria-label="Ir al inicio"><img src="/images/logo.png" alt="Gerson Cevallos Apolo, abogado" width="690" height="376" loading="lazy" /></a><p>Abg. Gerson Cevallos Apolo</p><a class="social-link" href="https://ec.linkedin.com/in/gerson-cevallos-apolo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gerson Cevallos Apolo (abre una pestaña nueva)"><Icon name="linkedin" size={20} /></a></div>
+    <div><h2>Navegación</h2><a href="/">Inicio</a><a href="/contacto/">Contacto</a></div>
+    <div><h2>Áreas de práctica</h2>{areas.map(area => <a href={`/${area.slug}/`}>{area.title}</a>)}</div>
+    <div><h2>Contacto</h2><a href="tel:+593969257499">0969257499</a><a href="mailto:gerson_cev97@hotmail.com">gerson_cev97@hotmail.com</a><p>Quito - Ecuador</p></div>
+  </div>
+  <div class="container footer-bottom"><p>© {new Date().getFullYear()} Gerson Cevallos Apolo. Todos los derechos reservados.</p><span>Asesoría jurídica en Ecuador</span></div>
+</footer>

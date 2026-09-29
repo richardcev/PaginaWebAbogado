@@ -1,0 +1,18 @@
+---
+import Header from './Header.astro';
+import Button from './Button.astro';
+interface Props { title: string; image: string; eyebrow?: string; home?: boolean; }
+const {title, image, eyebrow, home = false} = Astro.props;
+---
+<section class:list={['hero', {'hero--home': home}]} aria-labelledby="page-title">
+  <picture><source media="(max-width: 600px)" srcset={image.replace('.webp', '-mobile.webp')} /><img class="hero-image" src={image} alt="" width="1920" height="1200" fetchpriority="high" /></picture>
+  <div class="hero-shade"></div>
+  <Header />
+  <div class="container hero-content">
+    {eyebrow && <p class="eyebrow"><span></span>{eyebrow}</p>}
+    <h1 id="page-title">{home ? <>Abg. Gerson <br />Cevallos Apolo</> : title}</h1>
+    {home && <><p class="hero-description">Con experiencia en el ejercicio del Derecho, brindo asesoría y soluciones jurídicas para afrontar y resolver problemas de manera clara, estratégica y efectiva.</p><Button href="/contacto/">Obtén ayuda legal</Button></>}
+    {!home && <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">/</span><span>{title}</span></nav>}
+  </div>
+  {home && <div class="container hero-bottom"><span>DERECHO PÚBLICO · ASESORÍA ESTRATÉGICA</span><span>QUITO, ECUADOR</span></div>}
+</section>

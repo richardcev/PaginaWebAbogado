@@ -1,0 +1,41 @@
+---
+import Icon from './Icon.astro';
+import { areas } from '../data/content';
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Gerson Cevallos Apolo — Inicio"><img src="/images/logo.png" alt="Gerson Cevallos Apolo, abogado" width="690" height="376" fetchpriority="high" /></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú"><Icon name="menu" /></button>
+    <nav id="main-nav" class="main-nav" aria-label="Navegación principal">
+      <a class="nav-link" href="/" aria-current={path === '/' ? 'page' : undefined}>Inicio</a>
+      <div class="dropdown">
+        <button class="nav-link dropdown-toggle" type="button" aria-expanded="false" aria-controls="practice-menu">Áreas de práctica <Icon name="chevron" size={15} /></button>
+        <ul id="practice-menu" class="dropdown-menu" hidden>{areas.map(area => <li><a href={`/${area.slug}/`} aria-current={path === `/${area.slug}/` ? 'page' : undefined}>{area.title}<Icon size={16} /></a></li>)}</ul>
+      </div>
+      <a class="nav-link" href="/contacto/" aria-current={path === '/contacto/' ? 'page' : undefined}>Contacto</a>
+      <a class="header-phone" href="tel:+593969257499"><Icon name="phone" size={17} /> 0969257499</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
+  const nav = document.querySelector<HTMLElement>('.main-nav')!;
+  const dropdown = document.querySelector<HTMLElement>('.dropdown')!;
+  const toggle = document.querySelector<HTMLButtonElement>('.dropdown-toggle')!;
+  const submenu = document.querySelector<HTMLElement>('.dropdown-menu')!;
+  const desktop = window.matchMedia('(min-width: 900px)');
+  const hover = window.matchMedia('(hover: hover)');
+  function setDropdown(open: boolean) { toggle.setAttribute('aria-expanded', String(open)); submenu.hidden = !open; }
+  function setMenu(open: boolean) { menuButton.setAttribute('aria-expanded', String(open)); menuButton.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú'); nav.classList.toggle('is-open', open); if (!open) setDropdown(false); }
+  menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  toggle.addEventListener('click', () => setDropdown(submenu.hidden));
+  dropdown.addEventListener('mouseenter', () => { if (desktop.matches && hover.matches) setDropdown(true); });
+  dropdown.addEventListener('mouseleave', () => { if (desktop.matches && hover.matches && !dropdown.contains(document.activeElement)) setDropdown(false); });
+  dropdown.addEventListener('focusout', e => { if (!dropdown.contains(e.relatedTarget as Node)) setDropdown(false); });
+  toggle.addEventListener('keydown', e => { if (e.key === 'ArrowDown') { e.preventDefault(); setDropdown(true); submenu.querySelector('a')?.focus(); } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (!submenu.hidden) { setDropdown(false); toggle.focus(); } else if (nav.classList.contains('is-open')) { setMenu(false); menuButton.focus(); } } });
+  document.addEventListener('click', e => { if (!dropdown.contains(e.target as Node)) setDropdown(false); if (!nav.contains(e.target as Node) && !menuButton.contains(e.target as Node)) setMenu(false); });
+  nav.addEventListener('focusout', e => { if (!desktop.matches && !nav.contains(e.relatedTarget as Node) && e.relatedTarget !== menuButton) setMenu(false); });
+  desktop.addEventListener('change', () => setMenu(false));
+</script>

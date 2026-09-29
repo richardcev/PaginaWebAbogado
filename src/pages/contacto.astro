@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import {areas} from '../data/content';
+---
+<Layout title="Contacto | Gerson Cevallos Apolo, abogado en Ecuador" description="Contacte al Abg. Gerson Cevallos Apolo en Quito, Ecuador. Teléfono 0969257499. Asesoría en contratación pública y otras áreas del Derecho.">
+  <Hero title="Contacto" eyebrow="Gerson Cevallos Apolo" image="/images/hero-contacto.webp" />
+  <section class="container section contact-grid" aria-label="Información de contacto">
+    <div class="contact-details"><p class="eyebrow"><span></span>Contacto directo</p><h2>Hablemos de tu caso.</h2>
+      <div class="contact-item"><Icon name="phone"/><div><span>Teléfono</span><a href="tel:+593969257499">0969257499</a></div></div>
+      <div class="contact-item"><Icon name="mail"/><div><span>Correo electrónico</span><a href="mailto:gerson_cev97@hotmail.com">gerson_cev97@hotmail.com</a></div></div>
+      <div class="contact-item"><Icon name="pin"/><div><span>Ubicación</span><p>Quito - Ecuador</p></div></div>
+      <a class="social-link contact-social" href="https://ec.linkedin.com/in/gerson-cevallos-apolo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gerson Cevallos Apolo (abre una pestaña nueva)"><Icon name="linkedin"/></a>
+    </div>
+    <form class="contact-form" aria-label="Formulario de contacto" onsubmit="return false;">
+      <p>Nuestro equipo revisará su mensaje y se pondrá en contacto con usted a la brevedad.</p>
+      <div class="form-grid">
+        <div class="field"><label for="nombre">Nombre</label><input id="nombre" type="text" autocomplete="name" required /></div>
+        <div class="field"><label for="correo">Correo</label><input id="correo" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="telefono">Teléfono</label><input id="telefono" type="tel" autocomplete="tel" /></div>
+        <div class="field"><label for="area">Área de consulta</label><select id="area" required><option value="" disabled selected>Selecciona un área</option>{areas.map(area=><option value={area.slug}>{area.title}</option>)}<option value="otro">Otro</option></select></div>
+        <div class="field field--wide"><label for="mensaje">Mensaje</label><textarea id="mensaje" rows="5" required></textarea></div>
+      </div>
+      <button class="button button--gold" type="button">Enviar mensaje <Icon size={19}/></button>
+    </form>
+  </section>
+</Layout>

@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+---
+<Layout title="Página no encontrada | Gerson Cevallos Apolo" description="La página solicitada no está disponible. Regrese al inicio para conocer las áreas de práctica y los datos de contacto.">
+  <Hero title="Página no encontrada" eyebrow="Error 404" image="/images/hero-contacto.webp" />
+  <div class="container error-page"><p>Puedes volver al inicio o utilizar el menú para encontrar lo que necesitas.</p><Button href="/" variant="dark">Volver al inicio</Button></div>
+</Layout>
