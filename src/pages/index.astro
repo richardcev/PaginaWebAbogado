@@ -6,11 +6,11 @@ import ContactCTA from '../components/ContactCTA.astro';
 import Icon from '../components/Icon.astro';
 import {areas} from '../data/content';
 const experience = [
-  {year:'2026',role:'Director de Coactivas',institution:'Corporación del Seguro de Depósitos · COSEDE'},
-  {year:'2025',role:'Director de Asesoría Legal y Patrocinio / Coordinador General de Asesoría Jurídica',institution:'Servicio Nacional de Contratación Pública · SERCOP'},
-  {year:'2023 – 2024',role:'Jefe de Contratación Pública de Servicios y Obras',institution:'Benemérito Cuerpo de Bomberos de Guayaquil'},
-  {year:'2022',role:'Analista de Asesoría Jurídica',institution:'Comisión de Tránsito del Ecuador'},
   {year:'2017 – 2021',role:'Analista Legal de Contratación Pública',institution:'Municipio de Guayaquil'},
+  {year:'2022',role:'Analista de Asesoría Jurídica',institution:'Comisión de Tránsito del Ecuador'},
+  {year:'2023 – 2024',role:'Jefe de Contratación Pública de Servicios y Obras',institution:'Benemérito Cuerpo de Bomberos de Guayaquil'},
+  {year:'2025',role:'Director de Asesoría Legal y Patrocinio / Coordinador General de Asesoría Jurídica',institution:'Servicio Nacional de Contratación Pública · SERCOP'},
+  {year:'2026',role:'Director de Coactivas',institution:'Corporación del Seguro de Depósitos · COSEDE'},
 ];
 ---
 <Layout title="Gerson Cevallos Apolo | Abogado en contratación pública" description="Asesoría jurídica en contratación pública, derecho administrativo, familia y derecho constitucional. Abg. Gerson Cevallos Apolo, Quito, Ecuador.">
@@ -26,7 +26,7 @@ const experience = [
   </div></section>
   <section class="section experience" aria-labelledby="experience-title"><div class="container">
     <div class="section-heading"><div><p class="eyebrow"><span></span>Trayectoria profesional</p><h2 id="experience-title">Una visión desde la experiencia.</h2></div><span class="section-index">SECTOR PÚBLICO / ECUADOR</span></div>
-    <ol class="timeline" aria-label="Trayectoria profesional, del cargo más reciente al más antiguo">{experience.map(item=><li class="timeline-item"><div class="timeline-year">{item.year}</div><h3>{item.role}</h3><p>{item.institution}</p></li>)}</ol>
+    <ol class="timeline" aria-label="Trayectoria profesional, del cargo más antiguo al más reciente">{experience.map(item=><li class="timeline-item"><div class="timeline-year">{item.year}</div><h3>{item.role}</h3><p>{item.institution}</p></li>)}</ol>
   </div></section>
   <section class="section" aria-labelledby="practice-title"><div class="container"><h2 id="practice-title">Áreas de práctica</h2><div class="practice-grid">{areas.map(area=><PracticeCard {...area}/>)}</div></div></section>
   <ContactCTA />
