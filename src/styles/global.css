@@ -1265,6 +1265,10 @@ button,a,input,select,textarea {
   .section-index {
     display:none
   }
+  .timeline {
+    display:flex;
+    flex-direction:column-reverse
+  }
   .timeline-item {
     grid-template-columns:1fr;
     gap:8px;
