@@ -120,6 +120,10 @@ export const areas = [
     ],
     "services": [
       {
+        "title": "Acciones de protección",
+        "text": "Asesoría y patrocinio en acciones destinadas a obtener la protección inmediata de derechos constitucionales vulnerados."
+      },
+      {
         "title": "Acción extraordinaria de protección",
         "text": "Patrocinio en contra sentencias o autos definitivos en los que se haya violado por acción u omisión derechos reconocidos en la Constitución."
       },
